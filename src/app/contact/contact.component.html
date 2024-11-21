@@ -1,0 +1,113 @@
+<section
+    class=" py-16 bg-gradient-to-br from-gray-900 via-blue-900 to-blue-800 dark:from-gray-800 dark:via-gray-900 dark:to-black">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Contact Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
+            <p class="text-lg text-white">Have a question or want to work together? Feel free to reach out!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Contact Information -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+
+                <!-- Contact Details -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-envelope text-blue-600"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Email</p>
+                            <a href="mailto:rufaelhaile14&#64;gmail.com"
+                                class="text-gray-800 hover:text-blue-600 transition-colors">rufaelhaile14&#64;gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-phone text-blue-600"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Phone</p>
+                            <a href="tel:+251984999493" class="text-gray-800 hover:text-blue-600 transition-colors">
+                                +251 984 99 94 93</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Location</p>
+                            <p class="text-gray-800">Meklle, Tigrya, Ethiopia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-8">
+                    <h4 class="text-lg font-medium text-gray-800 mb-4">Connect With Me</h4>
+                    <div class="flex space-x-4">
+                        <a routerLink="https://github.com/welderufael-haile" target="_blank"
+                            class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fab fa-github text-gray-700"></i>
+                        </a>
+                        <a routerLink="https://linkedin.com/in/WelderufaelHaile" target="_blank"
+                            class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fab fa-linkedin-in text-gray-700"></i>
+                        </a>
+                        <a routerLink="https://telegram.org/rufaelHaile" target="_blank"
+                            class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fab fa-telegra text-gray-700"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <form class="space-y-6" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="name" name="name" [(ngModel)]="contactData.name"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            placeholder="John Doe" required>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" [(ngModel)]="contactData.email"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            placeholder="john@example.com" required>
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="subject" name="subject" [(ngModel)]="contactData.subject"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            placeholder="Project Inquiry" required>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="message" name="message" [(ngModel)]="contactData.message" rows="4"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            placeholder="Your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" [disabled]="!contactForm.valid || isSubmitting"
+                        class="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span *ngIf="!isSubmitting">Send Message</span>
+                        <span *ngIf="isSubmitting">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>Sending...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

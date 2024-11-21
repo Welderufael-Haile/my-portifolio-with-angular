@@ -1,0 +1,88 @@
+<section class="py-16 bg-gradient-to-br from-gray-900 via-blue-900 to-blue-800 dark:from-gray-800 dark:via-gray-900 dark:to-black">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-4">Technical Skills</h2>
+            <p class="text-lg text-white">A comprehensive overview of my technical expertise and proficiency levels
+            </p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Frontend Development -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-100 p-3 rounded-full">
+                        <i class="fas fa-code text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white ml-4">Frontend Development</h3>
+                </div>
+                <div class="space-y-4">
+                    <div *ngFor="let skill of frontendSkills">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-500">{{skill.name}}</span>
+                            <span class="text-gray-500">{{skill.level}}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" [style.width.%]="skill.level"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend Development -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <i class="fas fa-server text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 ml-4">Backend Development</h3>
+                </div>
+                <div class="space-y-4">
+                    <div *ngFor="let skill of backendSkills">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">{{skill.name}}</span>
+                            <span class="text-gray-500">{{skill.level}}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" [style.width.%]="skill.level"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Technologies -->
+            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-100 p-3 rounded-full">
+                        <i class="fas fa-tools text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 ml-4">Tools & Technologies</h3>
+                </div>
+                <div class="space-y-4">
+                    <div *ngFor="let skill of toolsSkills">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">{{skill.name}}</span>
+                            <span class="text-gray-500">{{skill.level}}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" [style.width.%]="skill.level"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Skills -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-semibold text-white mb-8 text-center">Other Skills</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div *ngFor="let skill of otherSkills"
+                    class="bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
+                    <i [class]="skill.icon + ' text-gray-600'"></i>
+                    <span class="text-gray-700">{{skill.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

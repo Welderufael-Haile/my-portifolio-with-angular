@@ -1,0 +1,74 @@
+<section class="min-h-screen bg-gradient-to-br from-slate-900 to-blue-900 py-20 relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0">
+        <div
+            class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse">
+        </div>
+        <div
+            class="absolute top-1/3 -right-4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-75">
+        </div>
+        <div
+            class="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-150">
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-20">
+            <h2 class="text-5xl font-bold text-white mb-6 tracking-tight">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+                    Featured Projects
+                </span>
+            </h2>
+            <p class="text-xl text-gray-300">Exploring creativity through code and design</p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div *ngFor="let project of projects"
+                class="group relative bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20"
+                [routerLink]="['/project', project.id]">
+
+                <!-- Project Image -->
+                <div class="relative h-56 overflow-hidden">
+                    <img [src]="project.image" [alt]="project.title"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        onError="this.src='assets/images/project-placeholder.jpg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                </div>
+
+                <!-- Project Details -->
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                        {{project.title}}
+                    </h3>
+                    <p class="text-gray-300 mb-6 line-clamp-3">{{project.description}}</p>
+
+                    <!-- Technology Tags -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span *ngFor="let tech of project.technologies"
+                            class="px-4 py-1.5 text-sm bg-blue-500/10 text-blue-300 rounded-full border border-blue-500/20">
+                            {{tech}}
+                        </span>
+                    </div>
+
+                    <!-- Project Links -->
+                    <div class="flex items-center justify-between">
+                        <a [href]="project.liveUrl" target="_blank"
+                            class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                            (click)="$event.stopPropagation()">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Demo</span>
+                        </a>
+                        <a [href]="project.githubUrl" target="_blank"
+                            class="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                            (click)="$event.stopPropagation()">
+                            <i class="fab fa-github"></i>
+                            <span>Source Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
